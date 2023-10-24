@@ -1,0 +1,73 @@
+package sample;
+
+import java.util.Scanner;
+
+import sample.Human.Gender;
+
+public class StudentKeyboard {
+
+	public StudentKeyboard() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	
+public boolean createObjectStudentFromKeyboard(Group group){
+    String name = null;
+    String lastName = null;
+    String gender = null;
+    String group_name = group.getGroupName();
+    Gender genderEnum = null;
+    Student a = null;
+    int id = 0;
+	Scanner scanner = new Scanner(System.in);
+	
+    System.out.println("Введите имя студента");
+    boolean nameSt =  false;
+    
+    if(nameSt == false) {
+    	name = scanner.nextLine();
+    }
+    System.out.println("Введите фамилию студента");
+ boolean lastNameSt =  false;
+    
+    if(lastNameSt == false) {
+    	lastName = scanner.nextLine();
+    }
+    System.out.println("Введите под студента");
+    boolean genderCheck = false;
+    while (genderCheck == false) {
+        gender = scanner.nextLine();
+        if (gender.toLowerCase().compareTo("male") == 0 || gender.toLowerCase().compareTo("female") == 0){
+            if (gender.toLowerCase().compareTo("male") == 0){
+                genderEnum = Gender.male;
+            } else {
+                genderEnum = Gender.female;
+            }
+            genderCheck = true;
+        }else{
+            System.out.println("Ошибка ввода");
+        }
+
+    }
+    System.out.println("Введите номер студента");
+boolean idSt =  false;
+    
+    if(idSt == false) {
+    	id = scanner.nextInt();
+    	idSt =  true;
+    }
+    
+    a = new Student(name, lastName, genderEnum, id ,group_name );
+    try {
+        group.addStudent(a);
+        System.out.println("Добавлено успешно");
+        return true;
+    }catch (GroupOverflowException e){
+        System.out.println("Group is already full");
+        return false;
+    }
+}
+
+}
