@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Group {
 private String groupName;
@@ -73,5 +74,13 @@ public String toString() {
       }
       return result;
 }
+public void sortStudentBylastName() {
+	Arrays.sort(students, Comparator.nullsLast(new sortSudentByLastName()) );
 
+	System.out.println();
+	for (int i = 0; i < students.length; i++) {
+	  System.out.println(students[i]);
+}
+
+}
 }
