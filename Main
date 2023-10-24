@@ -19,13 +19,8 @@ for (int i = 0; i < counter; i++) {
     }
 }
 System.out.println(group);
+group.sortStudentBylastName();
 
-Arrays.sort(group.getStudens(), Comparator.nullsFirst(new sortSudentByLastName()) );
-
-System.out.println();
-for (int i = 0; i < group.getStudens().length; i++) {
-  System.out.println(group.getStudens()[i]);
-}
 /*		try {
 Student student100 = group.searchStudentByLastName("kirilov");
 System.out.println(student100);
